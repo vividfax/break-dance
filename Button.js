@@ -6,12 +6,13 @@ class Button {
         this.x = x;
         this.y = y;
         this.letter = json.letter;
+        this.action = json.action;
+        this.requirements = json.requirements;
         this.size = 61;
         this.borderRadius = 7;
         this.strokeWeight = 4;
         this.status = "disabled";
-        this.action = json.action;
-        this.part = json.part;
+        this.state = false;
     }
 
     display() {

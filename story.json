@@ -3,118 +3,112 @@
         {
             "letter": "O",
             "action": "Open",
-            "part": 0
+            "requirements": ["start"]
         },
         {
             "letter": "B",
             "action": "Browse",
-            "part": 1
+            "requirements": ["O"]
         },
         {
             "letter": "F",
             "action": "Fiction",
-            "part": 2
+            "requirements": ["B"]
         },
         {
             "letter": "L",
             "action": "Literature",
-            "part": 3,
-            "requirement": "L"
+            "requirements": ["F"]
         },
         {
             "letter": "R",
             "action": "Romance",
-            "part": 3,
-            "requirement": "L"
+            "requirements": ["F"]
         },
         {
             "letter": "D",
             "action": "Detective",
-            "part": 3,
-            "requirement": "L"
+            "requirements": ["F"]
         },
         {
             "letter": "N",
             "action": "Non-Fiction",
-            "part": 2
+            "requirements": ["B"]
         },
         {
             "letter": "P",
             "action": "Popular Science",
-            "part": 3,
-            "requirement": "N"
+            "requirements": ["N"]
         },
         {
             "letter": "H",
             "action": "History & Politics",
-            "part": 3,
-            "requirement": "N"
+            "requirements": ["N"]
         },
         {
             "letter": "T",
             "action": "Travel",
-            "part": 3,
-            "requirement": "N"
+            "requirements": ["N"]
         },
         {
             "letter": "C",
             "action": "Cafe",
-            "part": 5
+            "requirements": ["L", "R", "D", "P", "H", "T"]
         },
         {
             "letter": "I",
             "action": "Ice Latte",
-            "part": 6
+            "requirements": ["C"]
         },
         {
             "letter": "M",
             "action": "Mocha",
-            "part": 6
+            "requirements": ["C"]
         },
         {
             "letter": "A",
             "action": "Americano",
-            "part": 6
+            "requirements": ["C"]
         },
         {
             "letter": "S",
             "action": "Snack",
-            "part": 7
+            "requirements": ["I", "M", "A"]
         },
         {
             "letter": "V",
             "action": "Victoria Sponge",
-            "part": 8
+            "requirements": ["S"]
         },
         {
             "letter": "G",
             "action": "Gateaux",
-            "part": 8
+            "requirements": ["S"]
         },
         {
             "letter": "W",
             "action": "Walnut Cake",
-            "part": 8
+            "requirements": ["S"]
         },
         {
             "letter": "K",
             "action": "Kick Back",
-            "part": 9
+            "requirements": ["V", "G", "W"]
         },
         {
             "letter": "E",
             "action": "Exit",
-            "part": 10
+            "requirements": ["K"]
         },
         {
             "letter": "Y",
             "action": "You forgot something?",
-            "part": 11
+            "requirements": ["E"]
         },
         {
             "letter": "Z",
             "action": "Zup",
-            "part": 12
+            "requirements": ["Y"]
         }
     ]
 }

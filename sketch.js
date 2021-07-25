@@ -1,6 +1,11 @@
 let story;
 let buttons = [];
-let part = 0;
+
+let qwerty = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
+
+let start = true;
+
+let Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M;
 
 function preload() {
 
@@ -12,6 +17,8 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
 
     createButtons();
+
+    buttons[0].status = "inactive";
 }
 
 function draw() {
@@ -34,11 +41,40 @@ function createButtons() {
 
 function update() {
 
+
     for (let i = 0; i < buttons.length; i++) {
 
-        if (keyIsDown(buttons[i].letter.charCodeAt(0))) {
-            buttons[i].status = "active";
-        }
+		let requirements = false;
+
+		for (let j = 0; j < buttons[i].requirements.length; j++) {
+
+			let requirement = buttons[i].requirements[j];
+
+			if (eval(requirement)) {
+
+				requirements = true;
+			}
+		}
+		if (requirements) {
+			buttons[i].status = "inactive";
+			eval(buttons[i].letter + " = false");
+		} else {
+			buttons[i].status = "disabled";
+		}
+		if (keyIsDown(buttons[i].letter.charCodeAt(0))) {
+
+			if (buttons[i].status == "inactive") {
+
+				buttons[i].status = "active";
+				eval(buttons[i].letter + " = true");
+			}
+        } else {
+			if (buttons[i].status == "active") {
+
+				buttons[i].status = "inactive";
+				eval(buttons[i].letter + " = false");
+			}
+		}
     }
 }
 
@@ -46,9 +82,6 @@ function displayButtons() {
 
     for (let i = 0; i < buttons.length; i++) {
 
-        if (part == buttons[i].part) {
-
-            buttons[i].display();
-        }
+        buttons[i].display();
     }
 }
