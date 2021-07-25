@@ -1,0 +1,120 @@
+{
+    "keys": [
+        {
+            "letter": "O",
+            "action": "Open",
+            "part": 0
+        },
+        {
+            "letter": "B",
+            "action": "Browse",
+            "part": 1
+        },
+        {
+            "letter": "F",
+            "action": "Fiction",
+            "part": 2
+        },
+        {
+            "letter": "L",
+            "action": "Literature",
+            "part": 3,
+            "requirement": "L"
+        },
+        {
+            "letter": "R",
+            "action": "Romance",
+            "part": 3,
+            "requirement": "L"
+        },
+        {
+            "letter": "D",
+            "action": "Detective",
+            "part": 3,
+            "requirement": "L"
+        },
+        {
+            "letter": "N",
+            "action": "Non-Fiction",
+            "part": 2
+        },
+        {
+            "letter": "P",
+            "action": "Popular Science",
+            "part": 3,
+            "requirement": "N"
+        },
+        {
+            "letter": "H",
+            "action": "History & Politics",
+            "part": 3,
+            "requirement": "N"
+        },
+        {
+            "letter": "T",
+            "action": "Travel",
+            "part": 3,
+            "requirement": "N"
+        },
+        {
+            "letter": "C",
+            "action": "Cafe",
+            "part": 5
+        },
+        {
+            "letter": "I",
+            "action": "Ice Latte",
+            "part": 6
+        },
+        {
+            "letter": "M",
+            "action": "Mocha",
+            "part": 6
+        },
+        {
+            "letter": "A",
+            "action": "Americano",
+            "part": 6
+        },
+        {
+            "letter": "S",
+            "action": "Snack",
+            "part": 7
+        },
+        {
+            "letter": "V",
+            "action": "Victoria Sponge",
+            "part": 8
+        },
+        {
+            "letter": "G",
+            "action": "Gateaux",
+            "part": 8
+        },
+        {
+            "letter": "W",
+            "action": "Walnut Cake",
+            "part": 8
+        },
+        {
+            "letter": "K",
+            "action": "Kick Back",
+            "part": 9
+        },
+        {
+            "letter": "E",
+            "action": "Exit",
+            "part": 10
+        },
+        {
+            "letter": "Y",
+            "action": "You forgot something?",
+            "part": 11
+        },
+        {
+            "letter": "Z",
+            "action": "Zup",
+            "part": 12
+        }
+    ]
+}
