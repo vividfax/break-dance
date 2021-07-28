@@ -1,7 +1,7 @@
 let story;
 let buttons = [];
 
-let qwerty = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
+// let qwerty = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
 
 let start = true;
 
@@ -41,7 +41,6 @@ function createButtons() {
 
 function update() {
 
-
     for (let i = 0; i < buttons.length; i++) {
 
 		let requirements = false;
@@ -57,7 +56,6 @@ function update() {
 		}
 		if (requirements) {
 			buttons[i].status = "inactive";
-			eval(buttons[i].letter + " = false");
 		} else {
 			buttons[i].status = "disabled";
 		}
@@ -66,14 +64,15 @@ function update() {
 			if (buttons[i].status == "inactive") {
 
 				buttons[i].status = "active";
-				eval(buttons[i].letter + " = true");
 			}
+			eval(buttons[i].letter + " = true");
+
         } else {
 			if (buttons[i].status == "active") {
 
 				buttons[i].status = "inactive";
-				eval(buttons[i].letter + " = false");
 			}
+			eval(buttons[i].letter + " = false");
 		}
     }
 }
