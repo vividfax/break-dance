@@ -1,86 +1,87 @@
-let story;
-let buttons = [];
+let colors = {
+	"white": "#fff",
+	"light": "#ccc",
+	"mid": "#aaa",
+	"dark": "#888",
+	"black": "#333"
+};
 
-// let qwerty = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
+let singleJson = [
+	{
+		"letter": "O",
+		"description": "Open door"
+	}
+];
+let single;
 
-let start = true;
+let doubleJson = [
+	{
+		"letter": "F",
+		"description": "Fiction"
+	},
+	{
+		"letter": "N",
+		"description": "Non-fiction"
+	}
+];
+let double;
 
-let Q, W, E, R, T, Y, U, I, O, P, A, S, D, F, G, H, J, K, L, Z, X, C, V, B, N, M;
+let tripleJson = [
+	{
+		"letter": "L",
+		"description": "Literature"
+	},
+	{
+		"letter": "R",
+		"description": "Romance"
+	},
+	{
+		"letter": "D",
+		"description": "Detective"
+	}
+];
+let triple;
+
+let K, T;
 
 function preload() {
 
-    story = loadJSON("story.json");
+	K = new Audio("sounds/K.wav");
+	K.loop = true;
+	K.volume = 0;
+	T = new Audio("sounds/T.wav");
+	T.loop = true;
+	T.volume = 0;
 }
 
 function setup() {
 
     createCanvas(windowWidth, windowHeight);
 
-    createButtons();
+	single = new SingleChoice(singleJson[0]);
+	double = new DoubleChoice(doubleJson[0], doubleJson[1]);
+	triple = new TripleChoice(tripleJson[0], tripleJson[1], tripleJson[2]);
 
-    buttons[0].status = "inactive";
+	K.play();
+	T.play();
 }
 
 function draw() {
 
-    update();
+	console.log(double.lean);
+	if (double.lean > 0) {
+		K.volume = double.lean;
+		T.volume = 0;
+	} else {
+		T.volume = double.lean * -1;
+		K.volume = 0;
+	}
 
-    background("#ccc");
-    displayButtons();
-}
+	double.update();
+	// triple.update();
 
-function createButtons() {
+    background(colors.light);
 
-    for (n in story.keys) {
-
-        let key = story.keys[n];
-
-        buttons.push(new Button(random(width), random(height), key));
-    }
-}
-
-function update() {
-
-    for (let i = 0; i < buttons.length; i++) {
-
-		let requirements = false;
-
-		for (let j = 0; j < buttons[i].requirements.length; j++) {
-
-			let requirement = buttons[i].requirements[j];
-
-			if (eval(requirement)) {
-
-				requirements = true;
-			}
-		}
-		if (requirements) {
-			buttons[i].status = "inactive";
-		} else {
-			buttons[i].status = "disabled";
-		}
-		if (keyIsDown(buttons[i].letter.charCodeAt(0))) {
-
-			if (buttons[i].status == "inactive") {
-
-				buttons[i].status = "active";
-			}
-			eval(buttons[i].letter + " = true");
-
-        } else {
-			if (buttons[i].status == "active") {
-
-				buttons[i].status = "inactive";
-			}
-			eval(buttons[i].letter + " = false");
-		}
-    }
-}
-
-function displayButtons() {
-
-    for (let i = 0; i < buttons.length; i++) {
-
-        buttons[i].display();
-    }
+	double.display();
+	// triple.display();
 }
