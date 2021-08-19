@@ -1,114 +1,144 @@
 {
-    "keys": [
+    "sets": [
         {
-            "letter": "O",
-            "action": "Open",
-            "requirements": ["start"]
+            "set": [
+                {
+                    "letter": "O",
+                    "description": "Open door"
+                }
+            ]
         },
         {
-            "letter": "B",
-            "action": "Browse",
-            "requirements": ["O"]
+            "set": [
+                {
+                    "letter": "B",
+                    "description": "Browse"
+                }
+            ]
         },
         {
-            "letter": "F",
-            "action": "Fiction",
-            "requirements": ["B"]
+            "set": [
+                {
+                    "letter": "F",
+                    "description": "Fiction"
+                },
+                {
+                    "letter": "N",
+                    "description": "Non-fiction"
+                }
+            ]
         },
         {
-            "letter": "L",
-            "action": "Literature",
-            "requirements": ["F"]
+            "set": [
+                {
+                    "letter": "D",
+                    "description": "Detective"
+                },
+                {
+                    "letter": "R",
+                    "description": "Romance"
+                },
+                {
+                    "letter": "L",
+                    "description": "Literature"
+                }
+            ]
         },
         {
-            "letter": "R",
-            "action": "Romance",
-            "requirements": ["F"]
+            "set": [
+                {
+                    "letter": "T",
+                    "description": "Travel"
+                },
+                {
+                    "letter": "H",
+                    "description": "History"
+                },
+                {
+                    "letter": "P",
+                    "description": "Popular Science"
+                }
+            ]
         },
         {
-            "letter": "D",
-            "action": "Detective",
-            "requirements": ["F"]
+            "set": [
+                {
+                    "letter": "C",
+                    "description": "Cafe"
+                }
+            ]
         },
         {
-            "letter": "N",
-            "action": "Non-Fiction",
-            "requirements": ["B"]
+            "set": [
+                {
+                    "letter": "A",
+                    "description": "Americano"
+                },
+                {
+                    "letter": "M",
+                    "description": "Mocha"
+                },
+                {
+                    "letter": "I",
+                    "description": "Ice Latte"
+                }
+            ]
         },
         {
-            "letter": "P",
-            "action": "Popular Science",
-            "requirements": ["N"]
+            "set": [
+                {
+                    "letter": "S",
+                    "description": "Sweet"
+                }
+            ]
         },
         {
-            "letter": "H",
-            "action": "History & Politics",
-            "requirements": ["N"]
+            "set": [
+                {
+                    "letter": "W",
+                    "description": "Walnut Cake"
+                },
+                {
+                    "letter": "V",
+                    "description": "Victoria Sponge"
+                },
+                {
+                    "letter": "G",
+                    "description": "Gateaux"
+                }
+            ]
         },
         {
-            "letter": "T",
-            "action": "Travel",
-            "requirements": ["N"]
+            "set": [
+                {
+                    "letter": "K",
+                    "description": "Kick back"
+                }
+            ]
         },
         {
-            "letter": "C",
-            "action": "Cafe",
-            "requirements": ["L", "R", "D", "P", "H", "T"]
+            "set": [
+                {
+                    "letter": "E",
+                    "description": "Exit"
+                }
+            ]
         },
         {
-            "letter": "I",
-            "action": "Ice Latte",
-            "requirements": ["C"]
+            "set": [
+                {
+                    "letter": "Y",
+                    "description": "You forgot something?"
+                }
+            ]
         },
         {
-            "letter": "M",
-            "action": "Mocha",
-            "requirements": ["C"]
-        },
-        {
-            "letter": "A",
-            "action": "Americano",
-            "requirements": ["C"]
-        },
-        {
-            "letter": "S",
-            "action": "Snack",
-            "requirements": ["I", "M", "A"]
-        },
-        {
-            "letter": "V",
-            "action": "Victoria Sponge",
-            "requirements": ["S"]
-        },
-        {
-            "letter": "G",
-            "action": "Gateaux",
-            "requirements": ["S"]
-        },
-        {
-            "letter": "W",
-            "action": "Walnut Cake",
-            "requirements": ["S"]
-        },
-        {
-            "letter": "K",
-            "action": "Kick Back",
-            "requirements": ["V", "G", "W"]
-        },
-        {
-            "letter": "E",
-            "action": "Exit",
-            "requirements": ["K"]
-        },
-        {
-            "letter": "Y",
-            "action": "You forgot something?",
-            "requirements": ["E"]
-        },
-        {
-            "letter": "Z",
-            "action": "Zup",
-            "requirements": ["Y"]
+            "set": [
+                {
+                    "letter": "Z",
+                    "description": "Zup"
+                }
+            ]
         }
     ]
 }

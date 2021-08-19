@@ -6,45 +6,16 @@ let colors = {
 	"black": "#333"
 };
 
-let singleJson = [
-	{
-		"letter": "O",
-		"description": "Open door"
-	}
-];
-let single;
+let story;
+let choices = [];
 
-let doubleJson = [
-	{
-		"letter": "F",
-		"description": "Fiction"
-	},
-	{
-		"letter": "N",
-		"description": "Non-fiction"
-	}
-];
-let double;
-
-let tripleJson = [
-	{
-		"letter": "L",
-		"description": "Literature"
-	},
-	{
-		"letter": "R",
-		"description": "Romance"
-	},
-	{
-		"letter": "D",
-		"description": "Detective"
-	}
-];
-let triple;
+let place = 0;
 
 let K, T;
 
 function preload() {
+
+	story = loadJSON("story.json");
 
 	K = new Audio("sounds/K.wav");
 	K.loop = true;
@@ -58,9 +29,18 @@ function setup() {
 
     createCanvas(windowWidth, windowHeight);
 
-	single = new SingleChoice(singleJson[0]);
-	double = new DoubleChoice(doubleJson[0], doubleJson[1]);
-	triple = new TripleChoice(tripleJson[0], tripleJson[1], tripleJson[2]);
+	for (let i in story.sets) {
+
+		let size = story.sets[i].set.length;
+
+		if (size == 1) {
+			choices[i] = new SingleChoice(story.sets[i].set[0]);
+		} else if (size == 2) {
+			choices[i] = new DoubleChoice(story.sets[i].set[0], story.sets[i].set[1]);
+		} else if (size == 3) {
+			choices[i] = new TripleChoice(story.sets[i].set[0], story.sets[i].set[1], story.sets[i].set[2]);
+		}
+	}
 
 	K.play();
 	T.play();
@@ -68,20 +48,15 @@ function setup() {
 
 function draw() {
 
-	console.log(double.lean);
-	if (double.lean > 0) {
-		K.volume = double.lean;
-		T.volume = 0;
-	} else {
-		T.volume = double.lean * -1;
-		K.volume = 0;
-	}
-
-	double.update();
-	// triple.update();
-
+	// if (double.lean > 0) {
+	// 	K.volume = double.lean;
+	// 	T.volume = 0;
+	// } else {
+	// 	T.volume = double.lean * -1;
+	// 	K.volume = 0;
+	// }
     background(colors.light);
 
-	double.display();
-	// triple.display();
+	choices[place].update();
+	choices[place].display();
 }

@@ -10,15 +10,31 @@ class DoubleChoice {
 
     update() {
 
-        if (keyIsDown(70)) {
-            if (this.lean < 1 - 0.02) {
-                this.lean += 0.02;
+        if (this.lean >= 1 || this.lean <= -1) {
+            place++;
+        }
+        if (this.lean > 0) {
+            this.lean -= 0.01;
+        }
+        if (this.lean < 0) {
+            this.lean += 0.01;
+        }
+        if (keyIsDown(this.first.letter.charCodeAt(0))) {
+            if (this.lean < 1) {
+                this.lean += 0.03;
             }
         }
-        if (keyIsDown(78)) {
-            if (this.lean > -1 + 0.02) {
-                this.lean -= 0.02;
+        if (keyIsDown(this.second.letter.charCodeAt(0))) {
+            if (this.lean > -1) {
+                this.lean -= 0.03;
             }
+        }
+        if (this.lean > -0.01 && this.lean < 0.01) {
+            this.lean = 0;
+        } else if (this.lean > 1) {
+            this.lean = 1;
+        } else if (this.lean < -1) {
+            this.lean = -1;
         }
     }
 
