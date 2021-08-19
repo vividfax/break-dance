@@ -5,12 +5,20 @@ class SingleChoice {
         this.first = first;
 
         this.lean = 0;
+        this.timer = 0;
     }
 
     update() {
 
+        if (this.timer == 1) {
+            place++
+            return;
+        } else if (this.timer > 0) {
+            this.timer--;
+            return;
+        }
         if (this.lean >= 1) {
-            place++;
+            this.timer = 48;
         }
         if (this.lean > 0) {
             this.lean -= 0.01;
@@ -29,8 +37,12 @@ class SingleChoice {
 
     display() {
 
-        this.displayShape();
-        this.displayButton(this.first);
+        if (this.timer > 0) {
+            this.displayButton(this.first);
+        } else {
+            this.displayShape();
+            this.displayButton(this.first);
+        }
     }
 
 

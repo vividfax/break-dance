@@ -8,12 +8,20 @@ class TripleChoice {
 
         this.xLean = 0;
         this.yLean = 0;
+        this.timer;
     }
 
     update() {
 
+        if (this.timer == 1) {
+            place++
+            return;
+        } else if (this.timer > 0) {
+            this.timer--;
+            return;
+        }
         if (this.xLean >= 1 || this.xLean <= -1 || this.yLean >= 1) {
-            place++;
+            this.timer = 48;
         }
         if (this.yLean > 0) {
             this.yLean -= 0.01;
@@ -55,10 +63,20 @@ class TripleChoice {
 
     display() {
 
-        this.displayShape();
-        this.displayButton(-150, 0, this.first);
-        this.displayButton(0, -150, this.second);
-        this.displayButton(150, 0, this.third);
+        if (this.timer > 0) {
+            if (this.xLean == 1) {
+                this.displayButton(-150, 0, this.first);
+            } else if (this.xLean == -1) {
+                this.displayButton(150, 0, this.third);
+            } else if (this.yLean == 1) {
+                this.displayButton(0, -150, this.second);
+            }
+        } else {
+            this.displayShape();
+            this.displayButton(-150, 0, this.first);
+            this.displayButton(0, -150, this.second);
+            this.displayButton(150, 0, this.third);
+        }
     }
 
     displayShape() {
