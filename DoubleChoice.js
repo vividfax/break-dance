@@ -7,6 +7,9 @@ class DoubleChoice {
 
         this.lean = 0;
         this.timer = 0;
+
+        this.x = random(-200, 200);
+        this.y = random(-100, 100);
     }
 
     update() {
@@ -78,7 +81,7 @@ class DoubleChoice {
         push();
 
         translate(this.lean*150, 0);
-        translate(width/2, height/2);
+        translate(width/2 + this.x, height/2 + this.y);
         noStroke();
         rectMode(CENTER);
 
@@ -97,7 +100,7 @@ class DoubleChoice {
         push();
 
         translate(this.lean*150, 0);
-        translate(width/2, height/2);
+        translate(width/2 + this.x, height/2 + this.y);
         noStroke();
         rectMode(CENTER);
 

@@ -9,6 +9,9 @@ class TripleChoice {
         this.xLean = 0;
         this.yLean = 0;
         this.timer;
+
+        this.x = random(-200, 200);
+        this.y = random(-100, 100);
     }
 
     update() {
@@ -93,7 +96,7 @@ class TripleChoice {
         push();
 
         translate(this.xLean*150, this.yLean*150);
-        translate(width/2, height/2);
+        translate(width/2 + this.x, height/2 + this.y);
         noStroke();
         rectMode(CENTER);
 
@@ -113,7 +116,7 @@ class TripleChoice {
         push();
 
         translate(this.xLean*150, this.yLean*150);
-        translate(width/2, height/2);
+        translate(width/2 + this.x, height/2 + this.y);
         noStroke();
         rectMode(CENTER);
 
