@@ -11,20 +11,6 @@ let choices = [];
 
 let place = 0;
 
-let K, T;
-
-function preload() {
-
-	story = loadJSON("story.json");
-
-	K = new Audio("sounds/K.wav");
-	K.loop = true;
-	K.volume = 0;
-	T = new Audio("sounds/T.wav");
-	T.loop = true;
-	T.volume = 0;
-}
-
 function setup() {
 
     createCanvas(windowWidth, windowHeight);
@@ -41,20 +27,10 @@ function setup() {
 			choices[i] = new TripleChoice(story.sets[i].set[0], story.sets[i].set[1], story.sets[i].set[2]);
 		}
 	}
-
-	K.play();
-	T.play();
 }
 
 function draw() {
 
-	// if (double.lean > 0) {
-	// 	K.volume = double.lean;
-	// 	T.volume = 0;
-	// } else {
-	// 	T.volume = double.lean * -1;
-	// 	K.volume = 0;
-	// }
     background(colors.light);
 
 	choices[place].update();

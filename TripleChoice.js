@@ -24,12 +24,21 @@ class TripleChoice {
             this.timer = 48;
         }
         if (this.yLean > 0) {
+            eval(this.first.letter).volume = 0;
+            eval(this.second.letter).volume = this.yLean;
+            eval(this.third.letter).volume = 0;
             this.yLean -= 0.01;
         }
         if (this.xLean > 0) {
+            eval(this.first.letter).volume = this.xLean;
+            eval(this.second.letter).volume = 0;
+            eval(this.third.letter).volume = 0;
             this.xLean -= 0.01;
         }
         if (this.xLean < 0) {
+            eval(this.first.letter).volume = 0;
+            eval(this.second.letter).volume = 0;
+            eval(this.third.letter).volume = -this.xLean;
             this.xLean += 0.01;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {

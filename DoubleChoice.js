@@ -18,13 +18,25 @@ class DoubleChoice {
             this.timer--;
             return;
         }
-        if (this.lean >= 1 || this.lean <= -1) {
+        if (this.lean >= 1) {
+            if (place == 2) {
+                choices.splice(4, 1);
+            }
+            this.timer = 48;
+        } else if (this.lean <= -1) {
+            if (place == 2) {
+                choices.splice(3, 1);
+            }
             this.timer = 48;
         }
         if (this.lean > 0) {
+            eval(this.first.letter).volume = this.lean;
+            eval(this.second.letter).volume = 0;
             this.lean -= 0.01;
         }
         if (this.lean < 0) {
+            eval(this.first.letter).volume = 0;
+            eval(this.second.letter).volume = -this.lean;
             this.lean += 0.01;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {

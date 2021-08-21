@@ -21,7 +21,10 @@ class SingleChoice {
             this.timer = 48;
         }
         if (this.lean > 0) {
+            eval(this.first.letter).volume = this.lean;
             this.lean -= 0.01;
+        } else {
+            eval(this.first.letter).volume = 0;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {
             if (this.lean < 1) {
