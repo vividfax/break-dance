@@ -1,19 +1,20 @@
 let colors = {
 	"white": "#fff",
-	"light": "#ccc",
-	"mid": "#aaa",
-	"dark": "#888",
-	"black": "#333"
+	"light": "#EEDFA9",
+	"mid": "#9995B0",
+	"dark": "#625F7B",
+	"black": "#212026"
 };
 
-let story;
 let choices = [];
 
 let place = 0;
 
 function setup() {
 
-    createCanvas(windowWidth, windowHeight);
+	createCanvas(windowWidth, windowHeight);
+	imageMode(CENTER);
+	createBackground();
 
 	for (let i in story.sets) {
 
@@ -31,8 +32,21 @@ function setup() {
 
 function draw() {
 
-    background(colors.light);
+	updatePixels();
 
 	choices[place].update();
 	choices[place].display();
+}
+
+function createBackground() {
+
+	background(colors.black);
+	image(coffeeShop, width/2, height/2);
+
+	for (let y = 0; y < height; y++) {
+		for (let x = 0; x < width; x++) {
+			set(x, y, get(x, y));
+		}
+	}
+	updatePixels();
 }

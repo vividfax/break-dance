@@ -88,6 +88,7 @@ class SingleChoice {
         textFont("Nunito");
         text(button.letter, 0, -150 + 2);
 
+        fill(colors.light);
         textFont("Times New Roman");
         textStyle(ITALIC);
         text(button.description, 0, -150 + 50);

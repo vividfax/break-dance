@@ -128,6 +128,7 @@ class TripleChoice {
         textFont("Nunito");
         text(button.letter, x, y + 2);
 
+        fill(colors.light);
         textFont("Times New Roman");
         textStyle(ITALIC);
         text(button.description, x, y + 50);

@@ -1,8 +1,14 @@
+let story;
+
+let coffeeShop;
+
 let A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, X, Y, Z;
 
 function preload() {
 
 	story = loadJSON("story.json");
+
+    coffeeShop = loadImage("images/coffeeShop.png");
 
     A = newAudio("A");
     B = newAudio("B");
