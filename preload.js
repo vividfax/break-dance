@@ -3,6 +3,9 @@ let story;
 let coffeeShop;
 
 let A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, X, Y, Z;
+let gains = {};
+
+let loop;
 
 function preload() {
 
@@ -38,12 +41,25 @@ function preload() {
     Z = newAudio("Z");
 }
 
-function newAudio(string) {
+function newAudio(c) {
 
-    let letter = new Audio("sounds/" + string + ".wav");
-    letter.loop = true;
-    letter.volume = 0;
-    letter.play();
+    let player;
 
-    return letter;
+    for (let i = 0; i < 26; i++) {
+        player = new Tone.Player({
+            url: "sounds/" + c + ".wav",
+        }).toMaster();
+    };
+    gains[c] = new Tone.Gain(-1);
+    player.connect(gains[c]);
+    gains[c].toMaster();
+
+    loop = new Tone.Loop((time) => {
+        player.start();
+    }, "1n").start("+1i");
+
+    Tone.Buffer.on('load', () => {
+        Tone.Transport.start();
+    });
+    return player;
 }

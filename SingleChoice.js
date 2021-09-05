@@ -26,10 +26,10 @@ class SingleChoice {
             this.timer = 48;
         }
         if (this.lean > 0) {
-            eval(this.first.letter).volume = this.lean;
+            gains[this.first.letter].gain.value = map(this.lean, 0, 1, -1, 1);
             this.lean -= 0.01;
         } else {
-            eval(this.first.letter).volume = 0;
+            gains[this.first.letter].gain.value = -1;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {
             if (this.lean < 1) {

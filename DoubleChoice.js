@@ -33,13 +33,13 @@ class DoubleChoice {
             this.timer = 48;
         }
         if (this.lean > 0) {
-            eval(this.first.letter).volume = this.lean;
-            eval(this.second.letter).volume = 0;
+            gains[this.first.letter].gain.value = map(this.lean, 0, -1, -1, 1);
+            gains[this.second.letter].gain.value = -1;
             this.lean -= 0.01;
         }
         if (this.lean < 0) {
-            eval(this.first.letter).volume = 0;
-            eval(this.second.letter).volume = -this.lean;
+            gains[this.first.letter].gain.value = -1;
+            gains[this.second.letter].gain.value = map(this.lean, 0, 1, -1, 1);
             this.lean += 0.01;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {

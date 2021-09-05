@@ -27,21 +27,21 @@ class TripleChoice {
             this.timer = 48;
         }
         if (this.yLean > 0) {
-            eval(this.first.letter).volume = 0;
-            eval(this.second.letter).volume = this.yLean;
-            eval(this.third.letter).volume = 0;
+            gains[this.first.letter].gain.value = -1;
+            gains[this.second.letter].gain.value = map(this.yLean, 0, 1, -1, 1);
+            gains[this.third.letter].gain.value = -1;
             this.yLean -= 0.01;
         }
         if (this.xLean > 0) {
-            eval(this.first.letter).volume = this.xLean;
-            eval(this.second.letter).volume = 0;
-            eval(this.third.letter).volume = 0;
+            gains[this.first.letter].gain.value = map(this.xLean, 0, 1, -1, 1);
+            gains[this.second.letter].gain.value = -1;
+            gains[this.third.letter].gain.value = -1;
             this.xLean -= 0.01;
         }
         if (this.xLean < 0) {
-            eval(this.first.letter).volume = 0;
-            eval(this.second.letter).volume = 0;
-            eval(this.third.letter).volume = -this.xLean;
+            gains[this.first.letter].gain.value = -1;
+            gains[this.second.letter].gain.value = -1;
+            gains[this.third.letter].gain.value = map(this.xLean, 0, -1, -1, 1);
             this.xLean += 0.01;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {
