@@ -13,7 +13,6 @@ let place = 0;
 function setup() {
 
 	createCanvas(windowWidth, windowHeight);
-	imageMode(CENTER);
 	createBackground();
 
 	for (let i in story.sets) {
@@ -40,6 +39,7 @@ function draw() {
 
 function createBackground() {
 
+	imageMode(CENTER);
 	background(colors.black);
 	image(coffeeShop, width/2, height/2);
 

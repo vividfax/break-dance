@@ -9,6 +9,8 @@ class SingleChoice {
 
         this.x = random(-200, 200);
         this.y = random(-100, 100);
+
+        this.dir = random([-1, 1]);
     }
 
     update() {
@@ -56,15 +58,15 @@ class SingleChoice {
 
         push();
 
-        translate(0, this.lean*150);
+        translate(-this.lean*150 * this.dir, 0);
         translate(width/2 + this.x, height/2 + this.y);
         noStroke();
         rectMode(CENTER);
 
         fill(colors.mid);
-        rect(0, -75, 30, 150 + 30, 15);
+        rect(75 * this.dir, 0, 150 + 30, 30, 15);
 
-        translate(0, -this.lean*150);
+        translate(this.lean*150 * this.dir, 0);
         fill(colors.dark);
         ellipse(0, 0, 30, 30)
 
@@ -75,23 +77,23 @@ class SingleChoice {
 
         push();
 
-        translate(0, this.lean*150);
+        translate(-this.lean*150 * this.dir, 0);
         translate(width/2 + this.x, height/2 + this.y);
         noStroke();
         rectMode(CENTER);
 
-        rect(0, -150, 61, 61, 7);
+        rect(150 * this.dir, 0, 61, 61, 7);
 
         fill(colors.black);
         textAlign(CENTER, CENTER);
         textSize(23);
         textFont("Nunito");
-        text(button.letter, 0, -150 + 2);
+        text(button.letter, 150 * this.dir, 2);
 
         fill(colors.light);
         textFont("Times New Roman");
         textStyle(ITALIC);
-        text(button.description, 0, -150 + 50);
+        text(button.description, 150 * this.dir, 50);
 
         pop();
     }
