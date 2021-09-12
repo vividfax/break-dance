@@ -53,11 +53,10 @@ function newAudio(c) {
     gains[c[0]] = new Tone.Gain(-1);
     player.connect(gains[c[0]]);
     gains[c[0]].toMaster();
-
     loop = new Tone.Loop((time) => {
         player.start();
     }, "1n").start("+1i");
-
+    loop.interval = 13;
     Tone.Buffer.on('load', () => {
         Tone.Transport.start();
     });
