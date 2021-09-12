@@ -35,24 +35,24 @@ class DoubleChoice {
         if (this.lean > 0) {
             gains[this.first.letter].gain.value = map(this.lean, 0, -1, -1, 1);
             gains[this.second.letter].gain.value = -1;
-            this.lean -= 0.01;
+            this.lean -= 0.005;
         }
         if (this.lean < 0) {
             gains[this.first.letter].gain.value = -1;
             gains[this.second.letter].gain.value = map(this.lean, 0, 1, -1, 1);
-            this.lean += 0.01;
+            this.lean += 0.005;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {
             if (this.lean < 1) {
-                this.lean += 0.03;
+                this.lean += 0.015;
             }
         }
         if (keyIsDown(this.second.letter.charCodeAt(0))) {
             if (this.lean > -1) {
-                this.lean -= 0.03;
+                this.lean -= 0.015;
             }
         }
-        if (this.lean > -0.01 && this.lean < 0.01) {
+        if (this.lean > -0.005 && this.lean < 0.005) {
             this.lean = 0;
         } else if (this.lean > 1) {
             this.lean = 1;

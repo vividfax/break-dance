@@ -30,36 +30,36 @@ class TripleChoice {
             gains[this.first.letter].gain.value = -1;
             gains[this.second.letter].gain.value = map(this.yLean, 0, 1, -1, 1);
             gains[this.third.letter].gain.value = -1;
-            this.yLean -= 0.01;
+            this.yLean -= 0.005;
         }
         if (this.xLean > 0) {
             gains[this.first.letter].gain.value = map(this.xLean, 0, 1, -1, 1);
             gains[this.second.letter].gain.value = -1;
             gains[this.third.letter].gain.value = -1;
-            this.xLean -= 0.01;
+            this.xLean -= 0.005;
         }
         if (this.xLean < 0) {
             gains[this.first.letter].gain.value = -1;
             gains[this.second.letter].gain.value = -1;
             gains[this.third.letter].gain.value = map(this.xLean, 0, -1, -1, 1);
-            this.xLean += 0.01;
+            this.xLean += 0.005;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {
             if (this.xLean < 1 && this.yLean == 0) {
-                this.xLean += 0.03;
+                this.xLean += 0.015;
             }
         }
         if (keyIsDown(this.third.letter.charCodeAt(0))) {
             if (this.xLean > -1 && this.yLean == 0) {
-                this.xLean -= 0.03;
+                this.xLean -= 0.015;
             }
         }
         if (keyIsDown(this.second.letter.charCodeAt(0))) {
             if (this.yLean < 1 && this.xLean == 0) {
-                this.yLean += 0.03;
+                this.yLean += 0.015;
             }
         }
-        if (this.xLean > -0.01 && this.xLean < 0.01) {
+        if (this.xLean > -0.005 && this.xLean < 0.005) {
             this.xLean = 0;
         } else if (this.xLean > 1) {
             this.xLean = 1;

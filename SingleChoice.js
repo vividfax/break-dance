@@ -27,13 +27,13 @@ class SingleChoice {
         }
         if (this.lean > 0) {
             gains[this.first.letter].gain.value = map(this.lean, 0, 1, -1, 1);
-            this.lean -= 0.01;
+            this.lean -= 0.005;
         } else {
             gains[this.first.letter].gain.value = -1;
         }
         if (keyIsDown(this.first.letter.charCodeAt(0))) {
             if (this.lean < 1) {
-                this.lean += 0.03;
+                this.lean += 0.015;
             }
         }
         if (this.lean > 1) {
