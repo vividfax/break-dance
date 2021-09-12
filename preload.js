@@ -56,7 +56,7 @@ function newAudio(c) {
     loop = new Tone.Loop((time) => {
         player.start();
     }, "1n").start("+1i");
-    loop.interval = 13;
+    loop.interval = 12;
     Tone.Buffer.on('load', () => {
         Tone.Transport.start();
     });
