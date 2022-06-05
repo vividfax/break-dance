@@ -1,6 +1,6 @@
 class DoubleChoice {
 
-    constructor(first, second, newAudio) {
+    constructor(first, second) {
 
         this.first = first;
         this.second = second;
@@ -10,16 +10,9 @@ class DoubleChoice {
 
         this.x = random(-200, 200);
         this.y = random(-100, 100);
-
-        this.audioLoaded = true;
-        this.newAudio = newAudio;
     }
 
     update() {
-        if (this.audioLoaded==false) {
-            this.newAudio(this.first.fileName);
-            this.audioLoaded = true;
-        }
         if (this.timer == 1) {
             place++
             return;
