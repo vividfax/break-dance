@@ -1,19 +1,27 @@
 class SingleChoice {
 
-    constructor(first) {
+    constructor(first, newAudio) {
 
         this.first = first;
 
         this.lean = 0;
         this.timer = 0;
-
+        
         this.x = random(-200, 200);
         this.y = random(-100, 100);
-
+        
         this.dir = random([-1, 1]);
+        
+        this.audioLoaded = true;
+        this.newAudio = newAudio;
     }
 
     update() {
+        if (this.audioLoaded==false) {
+            this.newAudio(this.first.fileName);
+            this.audioLoaded = true;
+        }
+
 
         if (this.timer == 1) {
             place++
