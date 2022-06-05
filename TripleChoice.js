@@ -1,6 +1,6 @@
 class TripleChoice {
 
-    constructor(first, second, third, players) {
+    constructor(first, second, third) {
 
         this.first = first;
         this.second = second;
