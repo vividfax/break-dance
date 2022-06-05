@@ -56,17 +56,17 @@ let story = {
 				{
 					letter: "T",
 					description: "Travel",
-					fileName: "B.m4a"
+					fileName: "T.m4a"
 				},
 				{
 					letter: "H",
 					description: "History",
-					fileName: "B.m4a"
+					fileName: "H.m4a"
 				},
 				{
 					letter: "P",
 					description: "Popular Science",
-					fileName: "B.m4a"
+					fileName: "P.m4a"
 				}
 			]
 		},
@@ -227,28 +227,19 @@ function setup() {
 	for (let i in story.numberOfButtons) {
 		let size = story.numberOfButtons[i].letterItem.length;
 		if (size == 1) {
-			choices[i] = new SingleChoice(story.numberOfButtons[i].letterItem[0], [
-				players[accumulator]
-			]);
+			choices[i] = new SingleChoice(story.numberOfButtons[i].letterItem[0]);
 			accumulator++;
 		} else if (size == 2) {
 			choices[i] = new DoubleChoice(
 				story.numberOfButtons[i].letterItem[0],
-				story.numberOfButtons[i].letterItem[1],
-				[players[accumulator], players[accumulator + 1]]
+				story.numberOfButtons[i].letterItem[1]
 			);
 			accumulator += 2;
 		} else if (size == 3) {
 			choices[i] = new TripleChoice(
 				story.numberOfButtons[i].letterItem[0],
 				story.numberOfButtons[i].letterItem[1],
-				story.numberOfButtons[i].letterItem[2],
-				[
-					players[accumulator],
-					players[accumulator + 1],
-					players[accumulator + 2]
-				]
-			);
+				story.numberOfButtons[i].letterItem[2]);
 			accumulator += 3;
 		}
 	}
